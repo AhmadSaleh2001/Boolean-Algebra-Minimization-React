@@ -1,0 +1,341 @@
+*
+{
+    padding : 0;
+    margin : 0;
+    box-sizing: border-box;
+    font-family: 'Cairo', sans-serif;
+}
+:root
+{
+    --MainColor : rgb(248, 248, 248);
+    --SecondColor : rgb(3, 248, 105);
+}
+
+.container {
+    padding-left: 15px;
+    padding-right: 15px;
+    margin: auto;
+}
+@media (min-width:768px) {
+    .container {
+        width: 750px;
+    }
+}
+
+@media (min-width:992px) {
+    .container {
+        width: 970px;
+    }
+}
+
+@media (min-width:1200px) {
+    .container {
+        width: 1170px;
+    }
+}
+
+
+.Navbar
+{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: var(--MainColor);
+    box-shadow: 1px 1px 3px 2px rgb(145, 145, 145);
+    position: relative;
+}
+
+.Navbar .Show
+{
+    position: absolute;
+    right : 10px;
+    top : 25px;
+    font-size: 30px;
+    cursor: pointer;
+    display: none;
+    transition: all 0.5s ease-in-out;
+    
+}
+
+@media (max-width:768px) {
+    .Navbar
+    {
+        flex-direction: column;   
+    }
+
+    .Navbar .Links
+    {
+        padding-top: 10px;
+        flex-direction: column;
+        height: 0;
+        transition: all 0.5s ease-in-out;
+    }
+
+    .Navbar .Links.Active
+    {
+        height: 20vh;
+    }
+
+    .Navbar .Show
+    {
+        display: block;
+    }
+    .Navbar .Show.Active
+    {
+        
+        color:var(--SecondColor);
+        transform: rotate(-90deg);
+    }
+}
+
+.Navbar .Links
+{
+    width:30%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.Navbar h2
+{
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--SecondColor);
+}
+
+.Navbar .Links a
+{
+    display: block;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    text-decoration: none;
+    color:black;
+}
+
+.Navbar .Links a::before
+{
+    content: "";
+    position: absolute;
+    left : -100%;
+    top : 0;
+    width: 100%;
+    height: 3px;
+    background-color: var(--SecondColor);
+    transition: all 0.5s ease-in-out;
+}
+.Navbar .Links a:hover::before,
+.Navbar .Links a.Active::before
+{
+    left: 0;
+}
+
+
+
+.MinTerms
+{
+    position: relative;
+}
+
+.MinTerms .container
+{
+    text-align: center;
+    min-height: 500px;
+    
+}
+
+
+.MinTerms .container .Item
+{
+    padding : 10px;
+    border : 2px solid blue;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    font-size: 20px;
+    margin-top: 10px;
+}
+
+
+.MinTerms .container .Item input,
+.MinTerms .container .Item textarea
+{
+    text-align: center;
+    font-size: 18px;
+    border : 2px solid var(--SecondColor);
+    outline:none;
+    border-radius: 3px 7px;
+    background-color: rgb(241, 241, 241);
+    transition: all 0.5s ease-in-out;
+}
+
+.MinTerms .container .Item input:focus,
+.MinTerms .container .Item textarea:focus
+{
+    background-color: white;
+    border-radius: 7px 3px;
+}
+
+.MinTerms .container .Item button
+{
+    padding :5px 10px;
+    font-size: 18px;
+    outline: none;
+    border : 1px solid var(--SecondColor);
+    cursor: pointer;
+    transition: all 0.5s ease-in-out;
+    
+}
+
+.MinTerms .container .Item button:hover
+{
+    border-radius: 10px;
+    background-color: var(--SecondColor);
+    color:white;
+}
+
+.Overlay
+{
+    position: absolute;
+    left : 0;
+    top : 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0 , 0 , 0, 0.5);
+    z-index: 999;
+}
+
+
+.Modal .Content
+{
+    padding : 10px;
+    border : 3px solid var(--SecondColor);
+    width : 600px;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    position: absolute;
+    left : -100%;
+    top : -100%;
+    z-index: 1000;
+    background-color: white;
+    transition: all 0.5s ease-in-out;
+}
+
+@media (max-width:768px) {
+    .Modal .Content
+    {
+        width: 340px;
+    }
+}
+
+.Modal .Content.Show
+{
+    left: 50%;
+    top: 50%;
+    transform: translate(-50% , -50%);
+
+}
+
+.Modal .Content .Body
+{
+    border : 1px solid red;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.Close
+{
+    position: absolute;
+    top : 10px;
+    right : 10px;
+    border : 1px solid black;
+    padding : 5px 10px;
+    border-radius: 5px;
+    transition: all 0.5s ease-in-out;
+    cursor: pointer;
+}
+
+.Close:hover
+{
+    color : white;
+    background-color: red;
+    border-color: white;
+}
+
+
+.BooleanFunction .container
+{
+    text-align: center;
+}
+
+
+.Footer
+{
+    background-color: var(--SecondColor);
+    text-align: center;
+    color: black;
+}
+
+.Footer .Contact
+{
+    
+}
+
+.Footer .Contact a
+{
+    margin-left: 10px;
+    text-decoration: none;
+    color : white;
+    transition: all 0.5s ease-in-out;
+    color: black
+}
+
+.Footer .Contact a:hover
+{
+    color : white;
+}
+
+
+.Error
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding : 20px;
+}
+
+.Error > h3
+{
+    font-size: 40px;
+}
+
+
+.Error > a
+{
+    padding : 5px 20px;
+    text-decoration: none;
+    color : black;
+    border : 2px solid var(--SecondColor);
+    border-radius: 10px;
+    transition: all 0.5s ease-in-out;
+    font-weight: bold;
+}
+
+.Error>a:hover
+{
+    background-color: var(--SecondColor);
+}
